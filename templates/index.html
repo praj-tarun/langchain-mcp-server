@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCP Tools UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .tool { border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px; }
+        .tool h3 { margin-top: 0; color: #333; }
+        input, select, button { margin: 5px; padding: 8px; }
+        button { background: #007cba; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #005a87; }
+        .result { background: #f0f8ff; padding: 10px; margin: 10px 0; border-radius: 3px; }
+        .error { background: #ffe6e6; color: #d00; }
+    </style>
+</head>
+<body>
+    <h1>MCP Tools Interface</h1>
+    
+    <!-- Hello Tool -->
+    <div class="tool">
+        <h3>Hello Tool</h3>
+        <p>Greet someone with a custom message</p>
+        <input type="text" id="hello-name" placeholder="Enter name (optional)" value="World">
+        <button onclick="callHello()">Say Hello</button>
+        <div id="hello-result" class="result" style="display:none;"></div>
+    </div>
+    
+    <!-- Calculator Tool -->
+    <div class="tool">
+        <h3>Calculator Tool</h3>
+        <p>Perform basic math operations</p>
+        <input type="number" id="calc-a" placeholder="First number" value="10">
+        <select id="calc-op">
+            <option value="add">Add (+)</option>
+            <option value="subtract">Subtract (-)</option>
+            <option value="multiply">Multiply (×)</option>
+            <option value="divide">Divide (÷)</option>
+        </select>
+        <input type="number" id="calc-b" placeholder="Second number" value="5">
+        <button onclick="callCalculate()">Calculate</button>
+        <div id="calc-result" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        async function callHello() {
+            const name = document.getElementById('hello-name').value || 'World';
+            const resultDiv = document.getElementById('hello-result');
+            
+            try {
+                const response = await fetch('/api/call', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: 'hello',
+                        arguments: {name: name}
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.style.display = 'block';
+                resultDiv.className = data.success ? 'result' : 'result error';
+                resultDiv.textContent = data.success ? data.result : data.error;
+            } catch (error) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'Error: ' + error.message;
+            }
+        }
+        
+        async function callCalculate() {
+            const a = parseFloat(document.getElementById('calc-a').value);
+            const b = parseFloat(document.getElementById('calc-b').value);
+            const operation = document.getElementById('calc-op').value;
+            const resultDiv = document.getElementById('calc-result');
+            
+            try {
+                const response = await fetch('/api/call', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: 'calculate',
+                        arguments: {operation: operation, a: a, b: b}
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.style.display = 'block';
+                resultDiv.className = data.success ? 'result' : 'result error';
+                resultDiv.textContent = data.success ? data.result : data.error;
+            } catch (error) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

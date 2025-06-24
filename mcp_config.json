@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "simple-mcp-server": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "cwd": "c:\\Users\\asus\\OneDrive\\Desktop\\Persi\\langchain MCP"
+    },
+    "debug-mcp-server": {
+      "command": "python",
+      "args": ["debug_server.py"],
+      "cwd": "c:\\Users\\asus\\OneDrive\\Desktop\\Persi\\langchain MCP"
+    }
+  }
+}

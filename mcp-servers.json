@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "simple-mcp-server": {
+      "command": "python",
+      "args": ["c:\\Users\\asus\\OneDrive\\Desktop\\Persi\\AMZ Q\\mcp_server.py"],
+      "cwd": "c:\\Users\\asus\\OneDrive\\Desktop\\Persi\\AMZ Q"
+    }
+  }
+}
