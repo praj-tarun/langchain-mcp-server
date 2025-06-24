@@ -216,7 +216,12 @@ sentry_sdk.init(dsn="your-project-dsn")
 
 ## 📸 Screenshots
 
-### 1. Claude - MCP Tool Calls
+### 1. Claude Interface
+
+- **Claude UI Screenshot**  
+  ![Claude Screenshot](level1/claude.png)
+  
+#### Claude - MCP Tool Calls
 
 - **Greeting Prompt (Claude MCP)**  
   ![Claude MCP - greet](level1/claude%20MCP-%20greet.png)
@@ -226,11 +231,6 @@ sentry_sdk.init(dsn="your-project-dsn")
 
 - **Calculator Tool Prompt**  
   ![Claude MCP - calculator](level1/claude%20MCP-%20calculator.png)
-
-### 2. Claude Interface
-
-- **Claude UI Screenshot**  
-  ![Claude Screenshot](level1/claude.png)
 
 ### 3. Web Interface
 
