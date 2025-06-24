@@ -219,23 +219,23 @@ sentry_sdk.init(dsn="your-project-dsn")
 ### 1. Claude - MCP Tool Calls
 
 - **Greeting Prompt (Claude MCP)**  
-  ![Claude MCP - greet](deliverables/level1/claude%20MCP-%20greet.png)
+  ![Claude MCP - greet](level1/claude%20MCP-%20greet.png)
 
 - **Greeting Response**  
-  ![Claude MCP - greet ans](deliverables/level1/claude%20MCP-%20greet%20ans.png)
+  ![Claude MCP - greet ans](level1/claude%20MCP-%20greet%20ans.png)
 
 - **Calculator Tool Prompt**  
-  ![Claude MCP - calculator](deliverables/level1/claude%20MCP-%20calculator.png)
+  ![Claude MCP - calculator](level1/claude%20MCP-%20calculator.png)
 
 ### 2. Claude Interface
 
 - **Claude UI Screenshot**  
-  ![Claude Screenshot](deliverables/level1/claude.png)
+  ![Claude Screenshot](level1/claude.png)
 
 ### 3. Web Interface
 
 - **Web UI for MCP Tools**  
-  ![Web UI](deliverables/level1/web%20UI.png)
+  ![Web UI](level1/web%20UI.png)
 
 ---
 
